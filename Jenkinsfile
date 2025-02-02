@@ -17,12 +17,13 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sudo mkdir -p ${WEB_ROOT}
-                        sudo cp index.html ${WEB_ROOT}/index.html
-                        sudo chmod 644 ${WEB_ROOT}/index.html
-                        sudo chown www-data:www-data ${WEB_ROOT}/index.html
-                        sudo systemctl restart nginx
+                        sudo -S mkdir -p ${WEB_ROOT}
+                        sudo -S cp index.html ${WEB_ROOT}/index.html
+                        sudo -S chmod 644 ${WEB_ROOT}/index.html
+                        sudo -S chown www-data:www-data ${WEB_ROOT}/index.html
+                        sudo -S systemctl restart nginx
                     """
+                    
                 }
             }
         }
