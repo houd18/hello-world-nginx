@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO = "https://github.com/houd18/hello-world-nginx.git"
-        WEB_ROOT = "/var/www/html"  // Path where Nginx serves files
+        WEB_ROOT = "/var/www/html"
     }
 
     stages {
@@ -17,7 +17,10 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sudo mv index.html ${WEB_ROOT}/index.html
+                        sudo mkdir -p ${WEB_ROOT}
+                        sudo cp index.html ${WEB_ROOT}/index.html
+                        sudo chmod 644 ${WEB_ROOT}/index.html
+                        sudo chown www-data:www-data ${WEB_ROOT}/index.html
                         sudo systemctl restart nginx
                     """
                 }
