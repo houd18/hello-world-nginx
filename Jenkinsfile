@@ -17,8 +17,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sudo mv index.html ${WEB_ROOT}/index.html
-                        sudo systemctl restart nginx
+                        sudo -S mv index.html ${WEB_ROOT}/index.html
+                        sudo -S systemctl restart nginx
                     """
                 }
             }
