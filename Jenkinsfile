@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO = "https://github.com/houd18/hello-world-nginx.git"
-        WEB_ROOT = "/usr/share/nginx/html"  // Path where Nginx serves files.
+        WEB_ROOT = "/usr/share/nginx/html"  // Path where Nginx serves files.;
     }
 
     stages {
